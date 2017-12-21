@@ -12,7 +12,7 @@ public class StringTest {
         String s = "DRM ID 123456789 has been saved successfully.";
         String m = "DRM ID \\d+ has been saved successfully.";
         System.out.println(s.matches(m));
-        //String s = "";
+        //String s = ""; //test
         //System.out.println(s.isEmpty());
 
     }
