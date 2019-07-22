@@ -11,7 +11,7 @@ for (int i = 1; i <= BATCH_COUNT; i++) {
         node {
             checkout scm
             try {
-			echo 'Hello Mr.' + i
+			echo 'Hello Mr.'
                
             } catch (Throwable e) {
                 throw e
