@@ -11,14 +11,12 @@ for (int i = 1; i <= BATCH_COUNT; i++) {
         node {
             checkout scm
             try {
-                mvn "clean"
-                sh "rm -rf target/site/serenity"
-                mvn "verify -Dit.test=MyTestRunner* -Dparallel.tests=FORK_COUNT -Dserenity.batch.count=${BATCH_COUNT} -Dserenity.batch.number=${batchNumber} -Dserenity.test.statistics.dir=/statistics -f pom.xml"
+			echo 'Hello Mr.' + i
+               
             } catch (Throwable e) {
                 throw e
             } finally {
-                stash name: batchName,
-                    includes: "target/site/serenity/**/*",
+                stash name: batchName,           
                     allowEmpty: true
             }
         }
@@ -41,13 +39,6 @@ stage("report aggregation") {
 
         // publish the Serenity report
 
-        publishHTML(target: [
-                reportName : 'Serenity',
-                reportDir:   'target/site/serenity',
-                reportFiles: 'index.html',
-                keepAll:     true,
-                alwaysLinkToLastBuild: true,
-                allowMissing: false
-        ])
+        )
     }
 }
