@@ -11,7 +11,7 @@ for (int i = 1; i <= BATCH_COUNT; i++) {
         node {
             checkout scm
             try {
-			echo 'Hello Mr.'
+			echo 'Hello Mr.' + i
                
             } catch (Throwable e) {
                 throw e
@@ -39,6 +39,5 @@ stage("report aggregation") {
 
         // publish the Serenity report
 
-        )
     }
 }
