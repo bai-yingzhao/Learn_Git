@@ -9,7 +9,6 @@ for (int i = 1; i <= BATCH_COUNT; i++) {
 
     serenityBatches[batchName] = {
         node {
-            checkout scm
             try {
 			echo 'Hello Mr.' + i
                
